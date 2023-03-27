@@ -1,3 +1,62 @@
+const renderFinanceList = (data) => {
+  const table = document.getElementById("finances-table");
+  /**
+    <tr>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td class="center"></td>
+     <td class="right"></td>
+    </tr>
+   */
+  data.map((item) => {
+    const tableRow = document.createElement("tr");
+    tableRow.className = "mt smaller";
+
+    // titulo
+    const titleTd = document.createElement("td");
+    const titleText = document.createTextNode(item.title);
+    titleTd.appendChild(titleText);
+    tableRow, appendChild(titleTd);
+
+    // categoria
+    const categoryTd = document.createElement("td");
+    const categoryText = document.createTextNode(item.title);
+    categoryTd.appendChild(categoryText);
+    tableRow, appendChild(categoryTd);
+
+    // data
+    const dateTd = document.createElement("td");
+    const dateText = document.createTextNode(
+      new Date(item.date).toLocaleDateString
+    );
+    dateTd.appendChild(dateText);
+    tableRow, appendChild(dateTd);
+
+    // valor
+    const valueTd = document.createElement("td");
+    valueTd.className = "center";
+    const valueText = document.createTextNode(
+      new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+      }).format(item.value)
+    );
+    titleTd.appendChild(valueText);
+    tableRow, appendChild(valueTd);
+
+    // deletar
+    const deleteTd = document.createElement("td");
+    deleteTd.className = "right";
+    const deleteText = document.createTextNode("Deletar");
+    deleteTd.appendChild(deleteText);
+    tableRow, appendChild(deleteTd);
+
+    // table adiciona tablerow
+    table.appendChild(tableRow);
+  });
+};
+
 const renderFinanceElements = (data) => {
   // lançamentos totais
   const totalItens = data.lenght;
@@ -75,6 +134,8 @@ const onLoadFinancesData = async (email) => {
       }
     );
     const data = await result.jason();
+    renderFinanceElements(data);
+    renderFinanceList(data);
     console.log(data);
     return data;
   } catch (error) {
