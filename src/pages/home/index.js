@@ -60,19 +60,19 @@ const renderFinancesList = (data) => {
   data.map((item) => {
     const tableRow = document.createElement("tr");
 
-    // title
+    // titulo
     const titleTd = document.createElement("td");
     const titleText = document.createTextNode(item.title);
     titleTd.appendChild(titleText);
     tableRow.appendChild(titleTd);
 
-    // category
+    // categorias
     const categoryTd = document.createElement("td");
     const categoryText = document.createTextNode(item.name);
     categoryTd.appendChild(categoryText);
     tableRow.appendChild(categoryTd);
 
-    // category
+    // data
     const dateTd = document.createElement("td");
     const dateText = document.createTextNode(
       new Date(item.date).toLocaleDateString()
@@ -80,7 +80,7 @@ const renderFinancesList = (data) => {
     dateTd.appendChild(dateText);
     tableRow.appendChild(dateTd);
 
-    // value
+    // valor
     const valueTd = document.createElement("td");
     valueTd.className = "center";
     const valueText = document.createTextNode(
@@ -92,7 +92,7 @@ const renderFinancesList = (data) => {
     valueTd.appendChild(valueText);
     tableRow.appendChild(valueTd);
 
-    // delete
+    // deletar
     const deleteTd = document.createElement("td");
     deleteTd.style.cursor = "pointer";
     deleteTd.onclick = () => onDeleteItem(item.id);
@@ -116,7 +116,7 @@ const renderFinanceElements = (data) => {
     .reduce((acc, item) => acc + Number(item.value), 0);
   const totalValue = revenues + expenses;
 
-  // render total items
+  // rendimento total de itens
   const financeCard1 = document.getElementById("finance-card-1");
   financeCard1.innerHTML = "";
 
@@ -132,7 +132,7 @@ const renderFinanceElements = (data) => {
   totalElement.appendChild(totalText);
   financeCard1.appendChild(totalElement);
 
-  // render revenue
+  // rendimento de receitas
   const financeCard2 = document.getElementById("finance-card-2");
   financeCard2.innerHTML = "";
 
@@ -153,7 +153,7 @@ const renderFinanceElements = (data) => {
   revenueTextElement.appendChild(revenueText);
   financeCard2.appendChild(revenueTextElement);
 
-  // render expenses
+  // rendimento de despesas
   const financeCard3 = document.getElementById("finance-card-3");
   financeCard3.innerHTML = "";
 
@@ -174,7 +174,7 @@ const renderFinanceElements = (data) => {
   expensesTextElement.appendChild(expensesText);
   financeCard3.appendChild(expensesTextElement);
 
-  // render balance
+  // rendimento de b  alanço
   const financeCard4 = document.getElementById("finance-card-4");
   financeCard4.innerHTML = "";
 
@@ -226,13 +226,13 @@ const onLoadUserInfo = () => {
   const navbarUserInfo = document.getElementById("navbar-user-container");
   const navbarUserAvatar = document.getElementById("navbar-user-avatar");
 
-  // add user email
+  // adicionando email de usuario
   const emailElement = document.createElement("p");
   const emailText = document.createTextNode(email);
   emailElement.appendChild(emailText);
   navbarUserInfo.appendChild(emailElement);
 
-  // add logout link
+  // adicionando link de logout
   const logoutElement = document.createElement("a");
   logoutElement.onclick = () => onLogout();
   logoutElement.style.cursor = "pointer;";
@@ -240,7 +240,7 @@ const onLoadUserInfo = () => {
   logoutElement.appendChild(logoutText);
   navbarUserInfo.appendChild(logoutElement);
 
-  // add user first letter inside avatar
+  // adicinando primeira letra do nome
   const nameElement = document.createElement("h3");
   const nameText = document.createTextNode(name.charAt(0));
   nameElement.appendChild(nameText);
@@ -327,6 +327,7 @@ const onCreateFinanceRelease = async (target) => {
   }
 };
 
+// função de atualização da data
 const setInitialDate = () => {
   const dateInput = document.getElementById("selected-date");
   const nowDate = new Date().toISOString().split("T")[0];
