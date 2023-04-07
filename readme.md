@@ -1,5 +1,7 @@
 # Wallet App
 
+<img src="https://github.com/MennySage/wallet-app-frontend/blob/main/src/img/Preview.png" alt="Wallet Preview" height="500">
+
 # Introduction
 
 This is an finances management dashboard made with JavaScript, HTML and CSS. The main objective is the user add and delete finances releases (that are save in the API), and inform him the balance of the month.
