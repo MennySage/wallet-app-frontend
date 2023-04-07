@@ -1,6 +1,6 @@
 # Wallet App
 
-<img src="https://github.com/MennySage/wallet-app-frontend/blob/main/src/img/Preview.png" alt="Wallet Preview" height="172" width="380">
+<img src="https://github.com/MennySage/wallet-app-frontend/blob/main/src/img/Preview.png" alt="Wallet Preview" height="516" width="1140">
 
 # Introduction
 
